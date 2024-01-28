@@ -31,10 +31,32 @@ function determineWinner(userSelection, computerSelection) {
     }
 }
 
-function playerSelection(optionPlayer) {
-    console.log(optionPlayer)
-}
+let resultWinner
+const playerScore = document.getElementById("playerScore")
+const computerScore = document.getElementById("computerScore")
+const winner = document.getElementById("winner")
+let scorePlayer = 0;
+let scoreMachine = 0;
 
 function playRound(userOption) {
-    return playerSelection(userOption)
+    resultWinner = determineWinner(userOption, getComputerChoice())
+
+    if (resultWinner === "You win!") scorePlayer++
+    else if (resultWinner === "You lose!, Rock beats Scissors") scoreMachine++
+    else winner.innerText = 'The round was a tie!'
+
+    playerScore.innerText = scorePlayer.toString()
+    computerScore.innerText = scoreMachine.toString()
+
+    if (scorePlayer >= 5) {
+        winner.innerText = "The player is the winner"
+    }
+
+    if (scoreMachine >= 5) {
+        winner.innerText = "The computer is the winner"
+    }
 }
+
+
+playerScore.innerText = scorePlayer.toString()
+computerScore.innerText = scoreMachine.toString()

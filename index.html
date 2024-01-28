@@ -8,9 +8,16 @@
 <body>
 
     <div>
+        <p><strong>Player:</strong> <span id="playerScore"></span></p>
+        <p><strong>Computer:</strong> <span id="computerScore"></span></p>
+    </div>
+    <div>
         <button onclick="playRound('rock')">Rock</button>
         <button onclick="playRound('paper')">Paper</button>
-        <button onclick="playRound('scissor')">Scissor</button>
+        <button onclick="playRound('scissors')">Scissor</button>
+    </div>
+    <div>
+        <p id="winner"></p>
     </div>
     <script src="./main.js"></script>
 </body>
