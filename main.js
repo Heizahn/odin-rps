@@ -12,19 +12,19 @@ function determineWinner(userSelection, computerSelection) {
         return 'The game was a tie!';
     } else if (userSelection === 'rock') {
         if (computerSelection === 'paper') {
-            return 'You lose!, Paper beats Rock';
+            return 'You lose!';
         } else {
             return 'You win!';
         }
     } else if (userSelection === 'paper') {
         if (computerSelection === 'scissors') {
-            return 'You lose!, Scissors beats Paper';
+            return 'You lose!';
         } else {
             return 'You win!';
         }
     } else if (userSelection === 'scissors') {
         if (computerSelection === 'rock') {
-            return 'You lose!, Rock beats Scissors';
+            return 'You lose!';
         } else {
             return 'You win!';
         }
@@ -34,7 +34,9 @@ function determineWinner(userSelection, computerSelection) {
 let resultWinner
 const playerScore = document.getElementById("playerScore")
 const computerScore = document.getElementById("computerScore")
+const round = document.getElementById("round")
 const winner = document.getElementById("winner")
+
 let scorePlayer = 0;
 let scoreMachine = 0;
 
@@ -42,9 +44,9 @@ function playRound(userOption) {
     resultWinner = determineWinner(userOption, getComputerChoice())
 
     if (resultWinner === "You win!") scorePlayer++
-    else if (resultWinner === "You lose!, Rock beats Scissors") scoreMachine++
-    else winner.innerText = 'The round was a tie!'
+    else if (resultWinner === "You lose!") scoreMachine++
 
+    round.innerText = resultWinner
     playerScore.innerText = scorePlayer.toString()
     computerScore.innerText = scoreMachine.toString()
 
